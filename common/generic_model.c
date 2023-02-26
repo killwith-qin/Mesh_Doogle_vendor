@@ -230,9 +230,11 @@ int g_onoff_set(mesh_cmd_g_onoff_set_t *p_set, int par_len, int force_last, int 
  * @retval Whether the function executed successfully
  *   (0: success; others: error)
  */
+    u8 Command_Current_State = 0;
+    
 int mesh_cmd_sig_g_onoff_set(u8 *par, int par_len, mesh_cb_fun_par_t *cb_par)
 {
-    u8 Command_Current_State = 0;
+    
 	int err = 0;
     mesh_cmd_g_onoff_set_t *p_set = (mesh_cmd_g_onoff_set_t *)par;
 #if MESH_RX_TEST

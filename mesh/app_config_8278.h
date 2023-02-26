@@ -207,6 +207,10 @@ extern "C" {
 #define PA4_OUTPUT_ENABLE	1
 #define PA4_DATA_OUT	1
 
+//qinwei PB5 OUTPUT
+#define PB5_OUTPUT_ENABLE  1
+#define PB5_DATA_OUT       0
+
 #define PWM_FUNC_R  AS_PWM  // AS_PWM_SECOND
 #define PWM_FUNC_G  AS_PWM  // AS_PWM_SECOND
 #define PWM_FUNC_B  AS_PWM  // AS_PWM_SECOND
@@ -239,7 +243,7 @@ extern "C" {
 #if (MI_API_ENABLE)
 #define CLOCK_SYS_CLOCK_HZ  	48000000
 #else
-#define CLOCK_SYS_CLOCK_HZ  	16000000
+#define CLOCK_SYS_CLOCK_HZ  	48000000
 #endif
 //////////////////Extern Crystal Type///////////////////////
 #define CRYSTAL_TYPE			XTAL_12M		//  extern 12M crystal

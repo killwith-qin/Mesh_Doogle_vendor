@@ -46,7 +46,7 @@
 //------------------vendor op end-------------------
 
 extern u16 size_page0;
-
+extern u8 Command_Current_State;
 
 int g_onoff_set(mesh_cmd_g_onoff_set_t *p_set, int par_len, int force_last, int idx, bool4 retransaction, st_pub_list_t *pub_list);
 int mesh_tx_cmd_g_onoff_st(u8 idx, u16 ele_adr, u16 dst_adr, u8 *uuid, model_common_t *pub_md, u16 op_rsp);

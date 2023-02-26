@@ -67,6 +67,8 @@
 #include "vendor/common/user_du.h"
 #include "vendor/common/mi_api/telink_sdk_mible_api.h"
 #endif
+#include "vendor/common/generic_model.h"
+#include "vendor/user_app/user_app.h"
 
 #define BLT_RX_FIFO_SIZE        (MESH_DLE_MODE ? DLE_RX_FIFO_SIZE : 64)
 #define BLT_TX_FIFO_SIZE        (MESH_DLE_MODE ? DLE_TX_FIFO_SIZE : 40)
@@ -542,6 +544,7 @@ void cb_User_Init_Hardware(void)
 }
 void cb_My_Main_Loop_function(void)
 {
+	static u8 Need_CMD_OFF;
 	//MAC,Dirve name.etc
 	cb_User_Init_info();
 	//GPIO,COMMS;
@@ -550,7 +553,24 @@ void cb_My_Main_Loop_function(void)
 	User_General_Running_Function();
 	//indicate SW Pressed
 	cb_User_SW_Function();
-	
+
+
+	//Control LED function
+	if(Command_Current_State !=0)
+	{
+		Need_CMD_OFF = 1;
+	    User_Ctr_LED_Function(Command_Current_State);
+	}
+	else
+	{
+		if(Need_CMD_OFF != 0)
+		{
+            Need_CMD_OFF=0;
+            User_Ctr_LED_Function(Command_Current_State);
+
+		}
+
+	}
 }
 
 

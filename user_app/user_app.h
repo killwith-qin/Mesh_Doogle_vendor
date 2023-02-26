@@ -45,7 +45,9 @@
 void cb_user_factory_reset_additional();
 void cb_user_proc_led_onoff_driver(int on);
 
+/*Qin Wei*/
 
+void User_Ctr_LED_Function(u8 Cmd_ON_OFF);
 
 /**
   * @}
